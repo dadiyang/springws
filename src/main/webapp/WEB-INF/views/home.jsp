@@ -24,7 +24,7 @@
         var li = document.createElement("li");
         li.innerText = ev.data;
         document.getElementById("ul").appendChild(li);
-        setTimeout(sayHey, 1000);
+        setTimeout(sayHey, 2000);
     };
 
     sock.onclose = function (ev) {

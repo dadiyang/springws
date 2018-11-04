@@ -21,11 +21,11 @@ public class WebSocketConfig implements WebSocketConfigurer {
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry webSocketHandlerRegistry) {
         // withSockJS 声明启用支持 sockJS
-        webSocketHandlerRegistry.addHandler(marcoHandler(), "/echo").withSockJS();
+        webSocketHandlerRegistry.addHandler(echoHandler(), "/echo").withSockJS();
     }
 
     @Bean
-    public WebSocketHandler marcoHandler() {
+    public WebSocketHandler echoHandler() {
         return new EchoHandler();
     }
 }

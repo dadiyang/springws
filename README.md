@@ -4,7 +4,11 @@
 
 # 说明
 
-本项目为maven项目，使用SpringMVC实现，用于展示如果使用 SockJS
+本项目为maven项目，使用SpringMVC实现，用于展示如果使用 SockJS。项目启动后直接打开对应的端口在首页就可以看到展示的功能。
+
+后端在"/echo"上添加了WebSocket处理器，它会在客户端传过来的消息前面加上 **"Echo:"** 然后传回去。
+
+而页面会在打开的时候连接后端的WebSocket服务，连接之后每两秒发送一个 **"Hey guy!"** 的消息。
 
 # 基于 SockJS 的 WebSocket 
 
@@ -20,7 +24,7 @@
 @Override
 public void registerWebSocketHandlers(WebSocketHandlerRegistry webSocketHandlerRegistry) {
     // withSockJS 声明启用支持 sockJS
-    webSocketHandlerRegistry.addHandler(marcoHandler(), "/echo").withSockJS();
+    webSocketHandlerRegistry.addHandler(echoHandler(), "/echo").withSockJS();
 }
 ```
 
